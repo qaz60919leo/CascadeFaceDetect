@@ -22,7 +22,15 @@ void detectAndDisplay(Mat img)
 		//Point center(face[i].x + face[i].width / 2, face[i].y + face[i].height / 2);
 		rectangle(img, Point(face[i].x, face[i].y), Point(face[i].x + face[i].width, face[i].y + face[i].height), Scalar(255, 255, 0), 4);
 	}
-	imshow("Display", img);
+	
+	Mat resizeImg;
+	for (int i = 1; i < 20; i++) {
+		if (img.cols / i <= 1000) {
+			resize(img, resizeImg, Size(img.cols / i, img.rows / i), 0, 0, INTER_LINEAR);
+			break;
+		}
+	}
+	imshow("Display", resizeImg);
 }
 
 int main()
