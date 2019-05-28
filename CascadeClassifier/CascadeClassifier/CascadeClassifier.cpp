@@ -30,6 +30,7 @@ void detectAndDisplay(Mat img)
 			break;
 		}
 	}
+	imwrite("Result.jpg", resizeImg);
 	imshow("Display", resizeImg);
 }
 
